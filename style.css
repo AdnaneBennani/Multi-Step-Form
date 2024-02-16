@@ -1,0 +1,361 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7287a5;
+}
+.Container{
+    display: flex;
+    border-radius: 5px;
+    width: 60em;
+    height: 600px;
+    padding: 20px;
+    background-color: white;
+
+}
+.Steps{
+    flex: 1;
+    background-color: #483EFF;
+    background-image: url(/assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    padding: 40px;
+    border-radius: 7px;
+}
+.FirstStepInfo{
+    flex: 3;
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+
+}   
+.Step{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* padding: 0 40px; */
+    margin: 40px 0;
+}
+.Step span{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid white;
+    color: white;
+}
+.activeStep {
+    background-color: #BEE1FC;
+    color: black !important;
+}
+.Steps .Step h5,.Steps h6{
+    margin: 0;
+}
+h5{
+    color: hsl(231, 11%, 63%);
+    font-size: 14px;
+    font-weight: 200;
+}
+h6{
+    color: hsl(229, 24%, 87%);
+    font-size: 15px;
+    font-weight: 400;
+
+}
+.Inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Ipn {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.Ipn input {
+    width: 440px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid hsl(231, 11%, 63%);
+}
+.Title{
+    margin-bottom: 30px;
+}
+.Title h1{
+    margin: 0;
+}
+.FirstStepInfo button{
+    padding: 14px 28px;
+    background-color: #483EFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.FirstStepInfo button:hover{
+    transform: scale(1.05);
+}
+/*---------------------------------------------------------------------------------------------------*/
+.SecondStepInfo{
+    flex: 3;
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+    display: none;
+
+}
+.Options{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.Opt{
+    height: fit-content;
+    position: relative;
+    border-radius: 7px;
+}
+.Opt input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 0;
+}
+.OPPT{
+    border: 1px solid hsl(231, 11%, 63%);
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    flex: 1;
+    border-radius: 7px;
+    gap: 10px;
+}
+.Opt:hover{
+    border: 2px solid #483EFF;
+    transform: scale(1.01);
+}
+
+input:checked + .OPPT{
+    background-color: hsl(229, 24%, 87%);
+}
+.Btn_Mo_Yr{
+    box-sizing: border-box;
+    background-color: hsl(213, 96%, 18%);
+    width: 50px;
+    height: 23px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;    
+}
+.circle{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    margin: 5px;
+}
+.MO_YR{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0 50px;
+    background-color: #7287a548;
+    border-radius: 5px;
+}
+.MY{
+    /* border: 10px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.NS{
+    padding: 14px 28px;
+    background-color: #483EFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.SecondStepInfo button:hover{
+    transform: scale(1.05);
+}
+.bk{
+    padding: 14px 28px;
+    color: hsl(213, 96%, 18%);
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.SecondStepInfo button:hover{
+    transform: scale(1.05);
+}
+
+/*-------------------------------------------------------------*/
+.ThirdtStepInfo{
+    flex: 3;
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+    display: none;
+}
+.Servicess{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Service{
+    display: flex;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: hsl(229, 24%, 97%);
+    padding: 0 20px;
+}
+.ServiceInput{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.ServiceInput h4{
+    margin: 6px 0;
+}
+.Service:hover{
+    border: 2px solid #483EFF;
+    transform: scale(1.01);
+}
+#sv1,#sv2,#sv3{
+    display: none;
+}
+#sv1:checked + .Service,#sv2:checked + .Service,#sv3:checked + .Service{
+    background-color: #483EFF;
+    color: white;
+}
+/*-------------------------------------------------------------*/
+.forthtStepInfo{
+    flex: 3;
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+.forthtStepInfo .Title{
+    width: 100%;
+}
+.Confirm{
+    background-color: hsl(229, 24%, 97%);
+    width: 500px;
+    height: fit-content;
+    padding: 20px;
+
+}
+.PlanInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.PlanInfo h4{
+    margin: 7px 0;
+}
+.change{
+    color: #483EFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+.change:hover{
+    text-decoration: underline;
+}
+.PlanInfo .price{
+    color: hsl(213, 96%, 18%);
+    font-weight: 900;
+}
+.GetService{
+    display: flex;
+    flex-direction: column;
+}
+.Serv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Serv h5{
+    margin: 7px 0;
+}
+.Total{
+    width: 500px;
+    padding: 20px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.TotalPrice{
+    color: #483EFF;
+    font-size: 20px;
+    font-weight: 900;
+}
+/*----------------------------------------------*/
+.Title h1{
+    color: hsl(213, 96%, 18%);
+}
+.Title span{
+    color: hsl(229, 24%, 67%);
+}
+#Error{
+    color: red;
+    text-decoration: underline;
+    display: none;
+}
+/*------------------------------------------*/
+.ThankYouStepInfo{
+    flex: 3;
+    padding: 40px;
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.ThankYouStepInfo h1{
+    color: hsl(213, 96%, 18%);
+}
+.ThankYouStepInfo p{
+    color: hsl(233, 5%, 47%);
+    text-align: center;
+}
