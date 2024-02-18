@@ -336,7 +336,7 @@ input:checked + .OPPT{
 .Title span{
     color: hsl(229, 24%, 67%);
 }
-#Error{
+.ErrMsg{
     color: red;
     text-decoration: underline;
     display: none;

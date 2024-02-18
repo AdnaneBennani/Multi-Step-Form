@@ -3,10 +3,12 @@ var ThisSecondStep = document.getElementById("StepTwo")
 var ThirdtStepInfo = document.getElementById("StepThree")
 var forthtStepInfo = document.getElementById("StepFor")
 var ThankYouStepInfo = document.getElementById("Finish")
-var Chosen = [] 
-//-------------------------------------------
 let BtnYearMonth = document.getElementById("MY")
+const mySteps = document.querySelectorAll(".Step")
+let bkbtn = document.querySelectorAll(".bk")
+var Chosen = [] 
 
+// BTN TO CHECK IF IT IN YEAR OR MONTHS
 BtnYearMonth.addEventListener("click",() =>{
     let dataValue = BtnYearMonth.getAttribute("data-value")
     let cirlcePlace = document.getElementById("circel")
@@ -25,6 +27,15 @@ BtnYearMonth.addEventListener("click",() =>{
     }
 })
 
+function getifMontorYear(){
+    let dataValue = BtnYearMonth.getAttribute("data-value")
+    if(dataValue == "Yearly"){
+        return dataValue
+    }else if(dataValue == "Monthly"){   
+        return dataValue
+    }
+}
+////////////////////////////////////////////////////////
 
 function YearlyPlan(){
     let PlanPriceInfo = [
@@ -110,8 +121,8 @@ function MonthlyServices(){
 }
 MonthlyServices()
 MonthlyPlan()
-//------------------------------------------------------
-const mySteps = document.querySelectorAll(".Step")
+//-------------------------------------------------------------------------------------------------------------------
+
 function Submit(){
     event.preventDefault()
     let NameInput = document.getElementById("Name")
@@ -147,6 +158,8 @@ function getPlan(){
     }
     if(isCheked){
         ThirdSTep()
+        mySteps[2].childNodes[1].classList.add("activeStep")
+
     }else{
         console.log("Khessek Tkhtar we7da")
     }
@@ -154,7 +167,9 @@ function getPlan(){
 };
 
 function getServices(){
-    mySteps[2].childNodes[1].classList.remove("activeStep")
+    mySteps.forEach((step)=>{
+        step.childNodes[1].classList.remove("activeStep")
+    })
     let CheckBtns = document.getElementsByName("SR");
     let isCheked = false
     for(i=0;i<CheckBtns.length;i++){
@@ -166,7 +181,7 @@ function getServices(){
         }
     }
     if(isCheked){
-        confirmStepFoth()
+        ForthStep()
         CalculateTotalPerMonthYear()
         ThirdtStepInfo.style.display = "none"
 
@@ -179,8 +194,6 @@ function ThirdSTep(){
     ThisSecondStep.style.display = "none"
     ThirdtStepInfo.style.display = "grid"
     mySteps[1].childNodes[1].classList.remove("activeStep")
-    mySteps[2].childNodes[1].classList.add("activeStep")
-
 }
 
 
@@ -192,37 +205,34 @@ function ChangePlan(){
     Chosen = []
 }
 function ForthStep(){
+    ThirdtStepInfo.style.display = "none"
+    forthtStepInfo.style.display = "grid"
+    mySteps.forEach((step)=>{
+        step.childNodes[1].classList.remove("activeStep")
+    })
+    mySteps[3].childNodes[1].classList.add("activeStep")
     let result = getPlan();
+    let MY = getifMontorYear()
     var servicess =  Chosen
     let ConfirmPlace = document.getElementById("PlanInfo")
     let ServicePlace = document.getElementById("GetService")
     ConfirmPlace.innerHTML = `<div class="PlanInfo" id="PlanInfoo">
     <div class="">
-        <h4>${result.var1}</h4>
+        <h4>${result.var1} (${MY === "Monthly"?"Monthly":"Yearly"})</h4>
         <span class="change" onclick = "ChangePlan()">Change</span>
     </div>
     <div class="">
-        <span class="price">+$${result.var2}</span>
+        <span class="price">+$${result.var2}${MY === "Monthly"?"/mo":"/yr"}</span>
     </div>
     </div>`
     ServicePlace.innerHTML = servicess.map((item)=>
     `<div class="Serv">
     <h5>${item.Service}</h5>
-    <span>+$${item.price}</span>
+    <span>+$${item.price}${MY === "Monthly"?"/mo":"/yr"}</span>
     </div>`
     ).join("")
 }
 
-function confirmStepFoth(){
-    ThirdtStepInfo.style.display = "none"
-    forthtStepInfo.style.display = "grid"
-    mySteps[2].childNodes[1].classList.remove("activeStep")
-    mySteps[2].childNodes[1].classList.add("activeStep")
-    mySteps[3].childNodes[1].classList.add("activeStep")
-    ForthStep()
-}
-
-let bkbtn = document.querySelectorAll(".bk")
 bkbtn[0].addEventListener("click",()=>{
     myFirstStepInfo.style.display = "grid"
     ThisSecondStep.style.display = "none"
@@ -251,24 +261,21 @@ function CalculateServicePrice(){
     return TotalService
 }
 function CalculateTotalPerMonthYear(){
+    let MY = getifMontorYear()
     var myresult = parseInt(getPlan().var2) + CalculateServicePrice()
-        let TotalInfo = document.getElementById("Total")
-        TotalInfo.innerHTML =`<h5>Total</h5>
-        <span class="TotalPrice">+$${myresult}</span>`
+    let TotalInfo = document.getElementById("Total")
+    TotalInfo.innerHTML =`<h5>Total (${MY === "Monthly"?"Monthly":"Yearly"})</h5>
+    <span class="TotalPrice">+$${myresult} ${MY === "Monthly"?"/mo":"/yr"}</span>`
 }
 
-// function CalculateTotalPerYear(){
-//     var myresult = parseInt(getPlan().var2) + CalculateServicePrice()
-//     let TotalInfo = document.getElementById("Total")
-//     TotalInfo.innerHTML = `<h5>Total (per year)</h5>
-//     <span class="TotalPrice">+$${myresult}/yr</span>`
-// }
 
 function Finish(){
+    mySteps.forEach((step)=>{
+        step.childNodes[1].classList.remove("activeStep")
+    })
     ThankYouStepInfo.style.display = "flex"
     forthtStepInfo.style.display = "none"
 }
 // function ShowErrorMSg(errmsg){
-//     let ErrorMsg = document.createElement("div");
-//     ErrorMsg.textContent = errmsg;
+
 // }
