@@ -48,7 +48,7 @@ function YearlyPlan(){
         `<div class="Opt">
         <input type="radio" id="${item.Plan}" name="T" value ="${item.Plan}" data-price = "${item.Price}">
         <div class="OPPT">
-            <img src="/assets/images/${item.Pic}.svg" alt="">
+            <img src="./assets/images/${item.Pic}.svg" alt="">
             <label for="${item.Plan}">${item.Plan}</label>
             <span>+$${item.Price}/yr</span>
         </div>
@@ -67,7 +67,7 @@ function MonthlyPlan(){
         `<div class="Opt">
         <input type="radio" id="${item.Plan}" name="T" value ="${item.Plan}" data-price = "${item.Price}">
         <div class="OPPT">
-            <img src="/assets/images/${item.Pic}.svg" alt="">
+            <img src="./assets/images/${item.Pic}.svg" alt="">
             <label for="${item.Plan}">${item.Plan}</label>
             <span>+$${item.Price}/mo</span>
         </div>
