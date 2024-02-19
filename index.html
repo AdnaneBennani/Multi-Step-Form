@@ -11,21 +11,21 @@
         <div class="Steps">
             <div class="Step First">
                 <span class="activeStep">1</span>
-                <div class="Step1">
+                <div class="Stepinfo">
                     <h5>Step 1</h5>
                     <h6>Your Info</h6>
                 </div>
             </div>
             <div class="Step Second">
                 <span>2</span>
-                <div class="Step2">
+                <div class="Stepinfo">
                     <h5>Step 2</h5>
                     <h6>Select Plan</h6>
                 </div>
             </div>
             <div class="Step Third">
                 <span>3</span>
-                <div class="Step3">
+                <div class="Stepinfo">
                     <h5>Step 3</h5>
                     <h6>Addon-Ons</h6>
 
@@ -33,7 +33,7 @@
             </div>
             <div class="Step Forth">
                 <span>4</span>
-                <div class="Step4">
+                <div class="Stepinfo">
                     <h5>Step 4</h5>
                     <h6>Summary</h6>
                 </div>
@@ -57,8 +57,10 @@
                     <label for="">Phone Number</label>
                     <input id="Phone" type="text" placeholder="e.g +1 234 567 890">
                 </div>
-                <button type="submit" onclick="Submit()">Next Step</button>
+                <div class="BTNSS">
+                    <button type="submit" onclick="Submit()">Next Step</button>
 
+                </div>
             </form>
         </div>
         <div class="SecondStepInfo" id="StepTwo">
@@ -80,7 +82,7 @@
                     </div>
                     <h3>Yearly</h3>
                 </div>
-            </div>
+            </div class="BTNSS">
             <a class="bk">Back</a>
             <button class="NS" onclick="getPlan()">Next Step</button>
         </div>
@@ -93,8 +95,11 @@
                                 <!-- Servives -->
 
             </div>
-            <a class="bk">Back</a>
-            <button class="NS" onclick="getServices()">Next Step</button>
+            <div class="BTNSS">
+                <a class="bk">Back</a>
+                <button class="NS" onclick="getServices()">Next Step</button>
+            </div>
+
         </div>
         <div class="forthtStepInfo" id="StepFor">
             <div class="Title">
@@ -116,8 +121,10 @@
                 <!-- total -->
                 >
             </div>
-            <a class="bk">Back</a>
-            <button class="NS" onclick="Finish()">Confirm</button>
+            <div class="BTNSS">
+                <a class="bk">Back</a>
+                <button class="NS" onclick="Finish()">Confirm</button>
+            </div>
         </div>
         <div class="ThankYouStepInfo" id="Finish">
             <img src="./assets/images/icon-thank-you.svg" alt="">

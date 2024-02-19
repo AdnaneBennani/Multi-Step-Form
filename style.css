@@ -27,6 +27,7 @@ body{
     background-size: cover;
     padding: 40px;
     border-radius: 7px;
+    height: 100%;
 }
 .FirstStepInfo{
     flex: 3;
@@ -359,4 +360,65 @@ input:checked + .OPPT{
 .ThankYouStepInfo p{
     color: hsl(233, 5%, 47%);
     text-align: center;
+}
+.BTNSS{
+    margin-top: 60px;
+}
+@media all and (min-width: 1024px) and (max-width: 1280px) { }
+ 
+@media all and (min-width: 768px) and (max-width: 1024px) { }
+ 
+@media all and (min-width: 480px) and (max-width: 768px) { }
+ 
+@media all and (max-width: 480px) { 
+
+    .Container{
+        flex-direction: column;
+        height: fit-content;
+        box-sizing: border-box;
+    }
+    .Steps{
+        display: flex;
+        padding: 0;
+        justify-content: space-around;
+        flex: none;
+        height: 80px;
+        margin-bottom: 30px;
+    }
+    .Stepinfo{
+        display: none;
+    }
+    .FirstStepInfo{
+        padding: 0;
+    }
+    .Inputs input{
+        width: 100%;
+    }
+    .SecondStepInfo{
+        padding: 0;
+        width: 100%;
+    }
+    .Options{
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+    .Opt input{
+        opacity: 0;
+        padding: 0;
+    }
+    .Opt{
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
+    .OPPT{
+        flex-direction: row;
+        height: fit-content;
+        justify-content: flex-start;
+        padding: 20px;
+        width: 100%;
+    }
+    .ThirdtStepInfo{
+        padding: 0;
+    }
 }
